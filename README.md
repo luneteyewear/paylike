@@ -8,7 +8,7 @@ Payments services.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'paylike'
+gem 'paylike.rb'
 ```
 
 And then execute:
@@ -17,11 +17,52 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install paylike
+    $ gem install paylike.rb
 
 ## Usage
 
+A subset of the Paylike resources are provided with this SDK:
 
+ * `Paylike::App`
+ * `Paylike::Card`
+ * `Paylike::Line`
+ * `Paylike::User`
+ * `Paylike::Transaction`
+
+These resources have implemented the _CRUD_ methods to allow API operations:
+ * `all`
+ * `find`
+ * `create`
+ * `update`
+ * `delete`
+
+Here's an example on how to create a transaction, capture it, and refund it:
+```ruby
+require 'paylike'
+
+trans = Paylike::Transaction.create(
+  currency: 'EUR',
+  amount: 1000,
+  card: {
+    number: '4100000000000000',
+    code: '123',
+    expiry: {
+      month: '08',
+      year: '2020'
+    }
+  }
+)
+trans.capture(amount: 1000)
+trans.refund(amount: 500)
+```
+
+### Configuration
+
+The API keys will be loaded from your environment variables:
+
+ * `PAYLIKE_KEY`
+ * `PAYLIKE_MERCHANT_ID`
+ * `PAYLIKE_PUBLIC_KEY`
 
 ## Development
 

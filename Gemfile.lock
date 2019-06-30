@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    paylike (0.1.0)
+    paylike.rb (0.1.0)
       http-rest_client
 
 GEM
@@ -87,7 +87,7 @@ PLATFORMS
 DEPENDENCIES
   bundler
   ffaker
-  paylike!
+  paylike.rb!
   rake
   rspec
   rubocop-performance

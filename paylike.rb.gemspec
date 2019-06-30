@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'paylike/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'paylike'
+  spec.name          = 'paylike.rb'
   spec.version       = Paylike::VERSION
   spec.authors       = ['Stas SUȘCOV']
   spec.email         = ['stas@nerd.ro']
