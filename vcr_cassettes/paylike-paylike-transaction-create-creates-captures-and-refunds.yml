@@ -1,0 +1,197 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.paylike.io/transactions
+    body:
+      encoding: UTF-8
+      string: '{"currency":"EUR","amount":1000,"card":{"number":"4100000000000000","code":"123","expiry":{"month":"08","year":"2020"}},"key":"<PAYLIKE_PUBLIC_KEY>"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - gateway.paylike.io
+      User-Agent:
+      - http.rb/4.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 30 Jun 2019 12:08:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Request-Id:
+      - da0a41abdf845e069e2fe7f929308f6a
+    body:
+      encoding: UTF-8
+      string: "{\n\t\"transaction\": {\n\t\t\"id\": \"5d18a649451afb07969de6f4\"\n\t}\n}"
+    http_version: 
+  recorded_at: Sun, 30 Jun 2019 12:08:42 GMT
+- request:
+    method: get
+    uri: https://api.paylike.io/transactions/5d18a649451afb07969de6f4
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Basic <AUTH_TOKEN>
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.paylike.io
+      User-Agent:
+      - http.rb/4.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 30 Jun 2019 12:08:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Content-Type-Options:
+      - nosniff
+      X-Request-Id:
+      - 8e4e968e1ba3258f4af1faf1b8e8a420
+    body:
+      encoding: UTF-8
+      string: '{"transaction":{"id":"5d18a649451afb07969de6f4","test":true,"merchantId":"<PAYLIKE_MERCHANT_ID>","created":"2019-06-30T12:08:42.816Z","amount":1000,"refundedAmount":0,"capturedAmount":0,"voidedAmount":0,"pendingAmount":1000,"disputedAmount":0,"card":{"bin":"410000","last4":"0000","expiry":"2020-08-31T21:59:59.999Z","code":{"present":true},"scheme":"visa"},"tds":"none","currency":"EUR","custom":null,"recurring":false,"successful":true,"error":false,"descriptor":"A
+        test descriptor","trail":[]}}'
+    http_version: 
+  recorded_at: Sun, 30 Jun 2019 12:08:43 GMT
+- request:
+    method: post
+    uri: https://api.paylike.io/transactions/5d18a649451afb07969de6f4/captures
+    body:
+      encoding: UTF-8
+      string: '{"amount":500}'
+    headers:
+      Authorization:
+      - Basic <AUTH_TOKEN>
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.paylike.io
+      User-Agent:
+      - http.rb/4.1.1
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 30 Jun 2019 12:08:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Content-Type-Options:
+      - nosniff
+      X-Request-Id:
+      - 771d7c8fddba2e62d5afc2f75deb06de
+    body:
+      encoding: UTF-8
+      string: '{"transaction":{"id":"5d18a649451afb07969de6f4","test":true,"merchantId":"<PAYLIKE_MERCHANT_ID>","created":"2019-06-30T12:08:42.816Z","amount":1000,"refundedAmount":0,"capturedAmount":500,"voidedAmount":0,"pendingAmount":500,"disputedAmount":0,"card":{"bin":"410000","last4":"0000","expiry":"2020-08-31T21:59:59.999Z","code":{"present":true},"scheme":"visa"},"tds":"none","currency":"EUR","custom":null,"recurring":false,"successful":true,"error":false,"descriptor":"A
+        test descriptor","trail":[{"fee":{"flat":191,"rate":92},"amount":500,"balance":3379,"created":"2019-06-30T12:08:43.445Z","capture":true,"descriptor":"A
+        test descriptor","lineId":"5d18a64b094009078f08f0ce"}]}}'
+    http_version: 
+  recorded_at: Sun, 30 Jun 2019 12:08:43 GMT
+- request:
+    method: post
+    uri: https://api.paylike.io/transactions/5d18a649451afb07969de6f4/refunds
+    body:
+      encoding: UTF-8
+      string: '{"amount":333}'
+    headers:
+      Authorization:
+      - Basic <AUTH_TOKEN>
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.paylike.io
+      User-Agent:
+      - http.rb/4.1.1
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 30 Jun 2019 12:08:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Content-Type-Options:
+      - nosniff
+      X-Request-Id:
+      - f7135e27cd40516fa38b014f8bd747b0
+    body:
+      encoding: UTF-8
+      string: '{"transaction":{"id":"5d18a649451afb07969de6f4","test":true,"merchantId":"<PAYLIKE_MERCHANT_ID>","created":"2019-06-30T12:08:42.816Z","amount":1000,"refundedAmount":333,"capturedAmount":500,"voidedAmount":0,"pendingAmount":500,"disputedAmount":0,"card":{"bin":"410000","last4":"0000","expiry":"2020-08-31T21:59:59.999Z","code":{"present":true},"scheme":"visa"},"tds":"none","currency":"EUR","custom":null,"recurring":false,"successful":true,"error":false,"descriptor":"A
+        test descriptor","trail":[{"fee":{"flat":191,"rate":92},"amount":500,"balance":3379,"created":"2019-06-30T12:08:43.445Z","capture":true,"descriptor":"A
+        test descriptor","lineId":"5d18a64b094009078f08f0ce"},{"fee":{"flat":0,"rate":-61},"amount":333,"balance":-2378,"created":"2019-06-30T12:08:43.902Z","refund":true,"descriptor":"A
+        test descriptor","lineId":"5d18a64b451afb07969de6f5"}]}}'
+    http_version: 
+  recorded_at: Sun, 30 Jun 2019 12:08:44 GMT
+recorded_with: VCR 5.0.0

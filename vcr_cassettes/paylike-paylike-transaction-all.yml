@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.paylike.io/merchants/<PAYLIKE_MERCHANT_ID>/transactions?limit=2
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Basic <AUTH_TOKEN>
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.paylike.io
+      User-Agent:
+      - http.rb/4.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 30 Jun 2019 12:08:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Content-Type-Options:
+      - nosniff
+      X-Request-Id:
+      - eaa1e63d0209d4bacf768cc38d88b5ba
+    body:
+      encoding: UTF-8
+      string: |-
+        [
+        {"id":"5d189be5b16522079008f0ab","test":true,"merchantId":"<PAYLIKE_MERCHANT_ID>","created":"2019-06-30T11:24:22.439Z","amount":1000,"refundedAmount":0,"capturedAmount":0,"voidedAmount":1000,"pendingAmount":0,"disputedAmount":0,"card":{"bin":"410000","last4":"0000","expiry":"2020-08-31T21:59:59.999Z","code":{"present":true},"scheme":"visa"},"tds":"none","currency":"EUR","custom":null,"recurring":false,"successful":true,"error":false,"descriptor":"A test descriptor","trail":[{"fee":{"flat":0,"rate":0},"amount":1000,"balance":0,"created":"2019-06-30T11:24:22.964Z","void":true}]},
+        {"id":"5d189be3b16522079008f0aa","test":true,"merchantId":"<PAYLIKE_MERCHANT_ID>","created":"2019-06-30T11:24:20.616Z","amount":1000,"refundedAmount":333,"capturedAmount":500,"voidedAmount":0,"pendingAmount":500,"disputedAmount":0,"card":{"bin":"410000","last4":"0000","expiry":"2020-08-31T21:59:59.999Z","code":{"present":true},"scheme":"visa"},"tds":"none","currency":"EUR","custom":null,"recurring":false,"successful":true,"error":false,"descriptor":"A test descriptor","trail":[{"fee":{"flat":191,"rate":92},"amount":500,"balance":3379,"created":"2019-06-30T11:27:42.396Z","capture":true,"descriptor":"A test descriptor","lineId":"5d189cae094009078f08f097"},{"fee":{"flat":0,"rate":-61},"amount":333,"balance":-2378,"created":"2019-06-30T11:48:29.602Z","refund":true,"descriptor":"A test descriptor","lineId":"5d18a18db16522079008f0ca"}]}
+        ]
+    http_version: 
+  recorded_at: Sun, 30 Jun 2019 12:08:41 GMT
+recorded_with: VCR 5.0.0
